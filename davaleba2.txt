@@ -1,0 +1,35 @@
+1. // main class
+
+public class Main {
+    public static void main(String[] args) {
+
+        VowelCounterImpl vowelCounter = new VowelCounterImpl() {
+        };
+
+        String a = "I Love Testing";
+
+        int result = vowelCounter.countVowel(a);
+        System.out.println("Number of vowels in \"" + a + "\": " + result);
+    }
+}
+
+// abstract class
+
+abstract class VowelCounter {
+   
+    public abstract int countVowel(String input);
+}
+
+
+class VowelCounterImpl extends VowelCounter {
+    @Override
+    public int countVowel(String input) {
+        int vowelCount = 0;
+        for (char ch : input.toLowerCase().toCharArray()) {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowelCount++;
+            }
+        }
+        return vowelCount;
+    }
+}
